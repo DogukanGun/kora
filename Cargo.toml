@@ -57,8 +57,9 @@ jupiter-swap-api-client = { git = "https://github.com/pkxro/jupiter-swap-api-cli
 jupiter = "3.1.4"
 chrono = "0.4.39"
 hex = "0.4.3"
-p256 = "0.13.2"
+p256 = "0.13.3"
 redis = { version = "0.24.0", features = ["tokio-comp", "connection-manager"] }
 deadpool-redis = "0.14.0"
 vaultrs = "0.7.3"
 tk-rs = { git = "https://github.com/pkxro/tk-rs.git" }
+spl-token-2022 = "8.0.0"

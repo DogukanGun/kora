@@ -11,6 +11,7 @@ pub mod signer;
 pub mod solana;
 pub mod state;
 pub mod token;
+pub mod token22;
 pub mod transaction;
 
 pub use config::{load_config, Config};

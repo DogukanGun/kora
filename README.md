@@ -10,6 +10,10 @@ Kora is a Solana paymaster node that provides a JSON-RPC interface for handling 
 - Transfer transactions with any supported token
 - Remote signer support
 - Disallowed account, allowed spl tokens, programs config
+- Support for both SPL Token and Token22 programs
+- Permissionless relayer that anyone can fork and run
+- Well-tested with unit tests and integration tests
+- Configurable rate limiting and validation rules
 
 > Note: only `signAndSend` submits a transaction to an RPC, all other methods only return a signed transaction
 
@@ -94,6 +98,17 @@ allowed_spl_paid_tokens = [
 ]
 disallowed_accounts = []
 ```
+
+### Token Support
+
+The relayer supports both the standard SPL Token program and the Token22 program. This means you can:
+
+- Process transactions involving both token types
+- Validate token accounts and mints for both programs
+- Handle token transfers and other token operations
+- Pay transaction fees using either token type
+
+To configure which tokens are allowed for fee payment, update the `allowed_spl_paid_tokens` list in your `kora.toml` configuration file.
 
 ## API Reference
 

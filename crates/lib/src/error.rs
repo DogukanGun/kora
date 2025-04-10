@@ -1,7 +1,7 @@
 use jsonrpsee::{core::Error as RpcError, types::error::CallError};
 use serde::{Deserialize, Serialize};
 use solana_client::client_error::ClientError;
-use solana_sdk::signature::SignerError;
+use solana_sdk::{pubkey::ParsePubkeyError, signature::SignerError};
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Serialize, Deserialize, Clone)]
@@ -52,6 +52,12 @@ impl From<ClientError> for KoraError {
 impl From<SignerError> for KoraError {
     fn from(e: SignerError) -> Self {
         KoraError::SigningError(e.to_string())
+    }
+}
+
+impl From<ParsePubkeyError> for KoraError {
+    fn from(e: ParsePubkeyError) -> Self {
+        KoraError::InvalidTransaction(format!("Invalid public key: {}", e))
     }
 }
 
